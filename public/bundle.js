@@ -46,8 +46,11 @@
 
 	"use strict";
 	var app_config_1 = __webpack_require__(1);
+	var app_controller_main_1 = __webpack_require__(2);
 	var ngApp = angular.module('ngtsApp', ['ngRoute']);
-	ngApp.config(app_config_1.app.Config);
+	ngApp.config(app_config_1.app.Config.setup);
+	ngApp.controller("controller.Main", app_controller_main_1.controller.Main);
+	ngApp.controller("controller.Help", app_controller_main_1.controller.Help);
 	//# sourceMappingURL=app.js.map
 
 /***/ },
@@ -58,24 +61,51 @@
 	var app;
 	(function (app) {
 	    var Config = (function () {
-	        function Config($routeProvider) {
-	            this.$routeProvider = $routeProvider;
-	            this.iLading = {};
-	            this.iHelp = {};
-	            this.iLading.controller = "app.controller.main";
-	            this.iLading.templateUrl = "views/lading.html";
-	            this.iHelp.controller = "app.controller.help";
-	            this.iHelp.templateUrl = "views/help.html";
-	            $routeProvider.when('/', this.iLading);
-	            $routeProvider.when('/help', this.iHelp);
-	            $routeProvider.otherwise(this.iLading);
+	        function Config() {
 	        }
-	        Config.$inject = ['$routeProvider'];
+	        Config.setup = function ($routeProvider) {
+	            $routeProvider.when('/', {
+	                controller: 'controller.Main',
+	                templateUrl: 'views/landing.html'
+	            });
+	            $routeProvider.when('/help', {
+	                controller: 'controller.Help',
+	                templateUrl: 'views/help.html'
+	            });
+	            $routeProvider.otherwise({
+	                redirectTo: '/'
+	            });
+	        };
+	        Config.$inject = ["$routeProvider"];
 	        return Config;
 	    }());
 	    app.Config = Config;
 	})(app = exports.app || (exports.app = {}));
 	//# sourceMappingURL=app.config.js.map
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var controller;
+	(function (controller) {
+	    var Main = (function () {
+	        function Main() {
+	            console.log('Controlador MAIN');
+	        }
+	        return Main;
+	    }());
+	    controller.Main = Main;
+	    var Help = (function () {
+	        function Help() {
+	            console.log('Controlador HELP');
+	        }
+	        return Help;
+	    }());
+	    controller.Help = Help;
+	})(controller = exports.controller || (exports.controller = {}));
+	//# sourceMappingURL=app.controller.main.js.map
 
 /***/ }
 /******/ ]);

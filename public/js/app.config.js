@@ -2,19 +2,22 @@
 var app;
 (function (app) {
     var Config = (function () {
-        function Config($routeProvider) {
-            this.$routeProvider = $routeProvider;
-            this.iLading = {};
-            this.iHelp = {};
-            this.iLading.controller = "app.controller.main";
-            this.iLading.templateUrl = "views/lading.html";
-            this.iHelp.controller = "app.controller.help";
-            this.iHelp.templateUrl = "views/help.html";
-            $routeProvider.when('/', this.iLading);
-            $routeProvider.when('/help', this.iHelp);
-            $routeProvider.otherwise(this.iLading);
+        function Config() {
         }
-        Config.$inject = ['$routeProvider'];
+        Config.setup = function ($routeProvider, iRutas) {
+            $routeProvider.when('/', {
+                controller: 'controller.Main',
+                templateUrl: 'views/landing.html'
+            });
+            $routeProvider.when('/help', {
+                controller: 'controller.Help',
+                templateUrl: 'views/help.html'
+            });
+            $routeProvider.otherwise({
+                redirectTo: '/'
+            });
+        };
+        Config.$inject = ["$routeProvider"];
         return Config;
     }());
     app.Config = Config;
