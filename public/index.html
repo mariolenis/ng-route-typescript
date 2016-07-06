@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ngtsApp">
     <head>
         <title>Angular with TS</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+        <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+        <script src="bundle.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container"><h1>Welcome!</h1></div>
+        <hr>
+        <div ng-view></div>
     </body>
 </html>
