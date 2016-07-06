@@ -22,4 +22,3 @@ var app;
     }());
     app.Config = Config;
 })(app = exports.app || (exports.app = {}));
-//# sourceMappingURL=app.config.js.map
