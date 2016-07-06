@@ -4,7 +4,7 @@ export module app
     {
         static $inject = ["$routeProvider"];
         // los métodos estáticos se exportan como nombres estáticos
-        static setup($routeProvider: ng.route.IRouteProvider, iRutas: ng.route.IRoute[])
+        static setup($routeProvider: ng.route.IRouteProvider)
         {                        
             $routeProvider.when('/', 
             {

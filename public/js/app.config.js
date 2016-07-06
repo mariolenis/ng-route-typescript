@@ -4,7 +4,7 @@ var app;
     var Config = (function () {
         function Config() {
         }
-        Config.setup = function ($routeProvider, iRutas) {
+        Config.setup = function ($routeProvider) {
             $routeProvider.when('/', {
                 controller: 'controller.Main',
                 templateUrl: 'views/landing.html'

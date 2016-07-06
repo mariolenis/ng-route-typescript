@@ -63,7 +63,7 @@
 	    var Config = (function () {
 	        function Config() {
 	        }
-	        Config.setup = function ($routeProvider) {
+	        Config.setup = function ($routeProvider, iRutas) {
 	            $routeProvider.when('/', {
 	                controller: 'controller.Main',
 	                templateUrl: 'views/landing.html'
@@ -81,7 +81,7 @@
 	    }());
 	    app.Config = Config;
 	})(app = exports.app || (exports.app = {}));
-	//# sourceMappingURL=app.config.js.map
+
 
 /***/ },
 /* 2 */
