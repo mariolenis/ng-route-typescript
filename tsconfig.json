@@ -1,0 +1,11 @@
+{
+    "name": "ngRoute-angular-typescript",
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true
+    }
+}
