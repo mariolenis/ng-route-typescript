@@ -1,16 +1,13 @@
 export module app
 {
-    interface IRutas
-    {
+    interface IRutas {
         url: string;
         config: ng.route.IRoute;
     }
     
-    export class Config
-    {
+    export class Config {
         static $inject = ["$routeProvider"];
-        constructor($routeProvider: ng.route.IRouteProvider)
-        {
+        constructor($routeProvider: ng.route.IRouteProvider) {
             let rutas: IRutas[] = [
                 { 
                     url: '/', config : 
@@ -28,8 +25,7 @@ export module app
                 }
             ];
             
-            for (let i = 0; i < rutas.length; i++)
-            {
+            for (let i = 0; i < rutas.length; i++) {
                 let ruta = rutas[i];
                 $routeProvider.when(ruta.url, ruta.config);
             }
