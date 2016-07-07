@@ -5,6 +5,7 @@ var controller;
         function Main() {
             console.log('Controlador MAIN');
         }
+        Main.name = 'Main';
         return Main;
     }());
     controller.Main = Main;
