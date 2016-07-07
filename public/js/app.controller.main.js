@@ -16,4 +16,3 @@ var controller;
     }());
     controller.Help = Help;
 })(controller = exports.controller || (exports.controller = {}));
-//# sourceMappingURL=app.controller.main.js.map

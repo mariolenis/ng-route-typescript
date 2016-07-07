@@ -63,7 +63,8 @@
 	    var Config = (function () {
 	        function Config($routeProvider) {
 	            var rutas = [
-	                { url: '/', config: {
+	                {
+	                    url: '/', config: {
 	                        controller: 'controller.Main',
 	                        templateUrl: 'views/landing.html'
 	                    }
@@ -98,9 +99,12 @@
 	var controller;
 	(function (controller) {
 	    var Main = (function () {
-	        function Main() {
+	        function Main($http) {
+	            this.$http = $http;
 	            console.log('Controlador MAIN');
+	            this.$http.get("http://google.com");
 	        }
+	        Main.$inject = ['$http'];
 	        return Main;
 	    }());
 	    controller.Main = Main;
@@ -112,7 +116,7 @@
 	    }());
 	    controller.Help = Help;
 	})(controller = exports.controller || (exports.controller = {}));
-	//# sourceMappingURL=app.controller.main.js.map
+
 
 /***/ }
 /******/ ]);
