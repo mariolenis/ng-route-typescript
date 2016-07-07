@@ -1,5 +1,11 @@
 export module controller
 {
+    interface IPersona
+    {
+        nombre: string;
+        apellido: string;
+    }
+    
     export class Main
     {
         static name: string = 'Main';
@@ -7,18 +13,37 @@ export module controller
         {
             console.log('Controlador MAIN');
         }
-        
-        doSomething ()
-        {
-            console.log('Hola');
-        }
     }
     
     export class Help
     {
+        persona: IPersona = <IPersona>{};
         constructor()
         {
-            console.log('Controlador HELP');
+            this.persona.nombre = "Help";
+            console.log('Controlador HELP ');
+        }
+        
+        /**
+         * @param texto: string Texto a publicar.
+         */
+        doSomething (texto: string)
+        {
+            console.log(texto);
+        }
+    }
+    
+    class nClass extends Help
+    {
+        constructor()
+        {
+            /**
+             * this.ss.nombre se instancia en el momento que se llama al constructor
+             * de la clase Help con super()
+             */
+            super();
+            this.persona.apellido = "nClass";
+            this.doSomething(this.persona.apellido + " " + this.persona.apellido + " está haciendo algo.");
         }
     }
 }
