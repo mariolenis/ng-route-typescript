@@ -62,7 +62,6 @@
 	(function (app) {
 	    var Config = (function () {
 	        function Config($routeProvider) {
-	            this.$routeProvider = $routeProvider;
 	            var rutas = [
 	                { url: '/', config: {
 	                        controller: 'controller.Main',
