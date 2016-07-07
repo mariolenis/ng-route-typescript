@@ -7,6 +7,11 @@ export module controller
         {
             console.log('Controlador MAIN');
         }
+        
+        doSomething ()
+        {
+            console.log('Hola');
+        }
     }
     
     export class Help

@@ -5,6 +5,9 @@ var controller;
         function Main() {
             console.log('Controlador MAIN');
         }
+        Main.prototype.doSomething = function () {
+            console.log('Hola');
+        };
         Main.name = 'Main';
         return Main;
     }());
