@@ -48,10 +48,10 @@
 	var app_config_1 = __webpack_require__(1);
 	var app_controller_main_1 = __webpack_require__(2);
 	var ngApp = angular.module('ngtsApp', ['ngRoute']);
-	ngApp.config(app_config_1.app.Config.setup);
+	ngApp.config(app_config_1.app.Config);
 	ngApp.controller("controller.Main", app_controller_main_1.controller.Main);
 	ngApp.controller("controller.Help", app_controller_main_1.controller.Help);
-	//# sourceMappingURL=app.js.map
+
 
 /***/ },
 /* 1 */
@@ -61,21 +61,29 @@
 	var app;
 	(function (app) {
 	    var Config = (function () {
-	        function Config() {
-	        }
-	        Config.setup = function ($routeProvider) {
-	            $routeProvider.when('/', {
-	                controller: 'controller.Main',
-	                templateUrl: 'views/landing.html'
-	            });
-	            $routeProvider.when('/help', {
-	                controller: 'controller.Help',
-	                templateUrl: 'views/help.html'
-	            });
+	        function Config($routeProvider) {
+	            this.$routeProvider = $routeProvider;
+	            var rutas = [
+	                { url: '/', config: {
+	                        controller: 'controller.Main',
+	                        templateUrl: 'views/landing.html'
+	                    }
+	                },
+	                {
+	                    url: '/help', config: {
+	                        controller: 'controller.Help',
+	                        templateUrl: 'views/help.html'
+	                    }
+	                }
+	            ];
+	            for (var i = 0; i < rutas.length; i++) {
+	                var ruta = rutas[i];
+	                $routeProvider.when(ruta.url, ruta.config);
+	            }
 	            $routeProvider.otherwise({
 	                redirectTo: '/'
 	            });
-	        };
+	        }
 	        Config.$inject = ["$routeProvider"];
 	        return Config;
 	    }());

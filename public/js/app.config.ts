@@ -1,24 +1,41 @@
 export module app
 {
+    interface IRutas
+    {
+        url: string;
+        config: ng.route.IRoute;
+    }
+    
     export class Config
     {
         static $inject = ["$routeProvider"];
-        // los métodos estáticos se exportan como nombres estáticos
-        static setup($routeProvider: ng.route.IRouteProvider)
-        {                        
-            $routeProvider.when('/', 
+        constructor($routeProvider: ng.route.IRouteProvider)
+        {
+            let rutas: IRutas[] = [
+                { url: '/', config : 
+                    {
+                        controller: 'controller.Main',
+                        templateUrl: 'views/landing.html'
+                    }
+                }, 
+                {
+                    url: '/help', config :
+                    {
+                        controller: 'controller.Help', 
+                        templateUrl: 'views/help.html'
+                    }
+                }
+            ];
+            
+            for (let i = 0; i < rutas.length; i++)
             {
-                controller: 'controller.Main',
-                templateUrl: 'views/landing.html'
-            });
-            $routeProvider.when('/help', 
-            {
-                controller: 'controller.Help',
-                templateUrl: 'views/help.html'
-            });
+                let ruta = rutas[i];
+                $routeProvider.when(ruta.url, ruta.config);
+            }
+            
             $routeProvider.otherwise({
                 redirectTo: '/'
-            })
+            });
         }
     }
 }
