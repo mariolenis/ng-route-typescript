@@ -12,7 +12,8 @@ export module app
         constructor($routeProvider: ng.route.IRouteProvider)
         {
             let rutas: IRutas[] = [
-                { url: '/', config : 
+                { 
+                    url: '/', config : 
                     {
                         controller: 'controller.Main',
                         templateUrl: 'views/landing.html'

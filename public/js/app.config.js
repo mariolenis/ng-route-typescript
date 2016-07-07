@@ -4,7 +4,8 @@ var app;
     var Config = (function () {
         function Config($routeProvider) {
             var rutas = [
-                { url: '/', config: {
+                {
+                    url: '/', config: {
                         controller: 'controller.Main',
                         templateUrl: 'views/landing.html'
                     }
