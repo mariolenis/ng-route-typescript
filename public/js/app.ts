@@ -1,4 +1,4 @@
-import * as angular from 'angular';
+//import * as angular from 'angular';
 import { app } from './app.config';
 import { controller } from './app.controller.main';
 

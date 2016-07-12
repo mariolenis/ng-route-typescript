@@ -1,5 +1,4 @@
 "use strict";
-var angular = require('angular');
 var app_config_1 = require('./app.config');
 var app_controller_main_1 = require('./app.controller.main');
 var ngApp = angular.module('ngtsApp', ['ngRoute']);
