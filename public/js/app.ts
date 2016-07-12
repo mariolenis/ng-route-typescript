@@ -4,5 +4,5 @@ import { controller } from './app.controller.main';
 
 let ngApp = angular.module('ngtsApp', ['ngRoute']);
     ngApp.config(app.Config);
-    ngApp.controller(controller.Main.name, controller.Main);
+    ngApp.controller(controller.Main.getName(), controller.Main);
     ngApp.controller("controller.Help", controller.Help);

@@ -17,4 +17,3 @@ var Server = (function () {
 }());
 var appObj = new Server();
 module.exports = appObj.app;
-//# sourceMappingURL=tsapp.js.map
